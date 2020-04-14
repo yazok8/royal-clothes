@@ -17,7 +17,7 @@ class ShopPage extends React.Component{
     render(){
         const {collections} =this.state;
         return <div className="shop-page">{
-            //otherCollectionProps are the name,imageUrl, price of each item
+            //otherCollectionProps are the titles and items of each item
             collections.map(({id, ...otherCollectionProps}) => (
                 <CollectionPrev key={id} {...otherCollectionProps}/>
             ))
