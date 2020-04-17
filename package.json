@@ -5,6 +5,7 @@
   "keywords": [],
   "main": "src/index.js",
   "dependencies": {
+    "firebase": "^7.14.1",
     "mkdirp": "^1.0.3",
     "node-sass": "^4.13.1",
     "react": "16.13.1",
@@ -19,8 +20,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject", 
-    "babel-jest":"24.7.1"
+    "eject": "react-scripts eject",
+    "babel-jest": "24.7.1"
   },
   "browserslist": [
     ">0.2%",

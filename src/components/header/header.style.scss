@@ -1,6 +1,7 @@
 .header {
     height: 70px;
     width: 100%;
+    // this display flex and space between properties are connected. 
     display: flex;
     justify-content: space-between;
     margin-bottom: 25px;
@@ -11,6 +12,7 @@
       padding: 25px;
     }
   
+    //the options take 50% if whatever the header is. flex end places the options at the end of the header. 
     .options {
       width: 50%;
       height: 100%;
@@ -20,6 +22,7 @@
   
       .option {
         padding: 10px 15px;
+        cursor: pointer;
       }
     }
   }
