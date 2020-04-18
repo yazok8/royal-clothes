@@ -5,7 +5,7 @@ import {Route, Switch} from "react-router-dom";
 import ShopPage from "./pages/shop/shop.component";
 import Header from "./components/header/header.component.jsx";
 import SignInAndSignUpPage from "./pages/sign-up-and-sign-in/sign-up-and-sign-in.component.jsx"
-import {auth} from "./firebase/firebase.utils";
+import {auth, createUserProfileDocument} from "./firebase/firebase.utils";
 
 /* this route takes these three options, when "exact" is not give a value it means that it's true by default */
 
@@ -24,10 +24,29 @@ class App extends React.Component {
   unsubscribeFromAuth = null;
 
   componentDidMount() {
-    this.unsubscribeFromAuth = auth.onAuthStateChanged(user => {
-      this.setState({ currentUser: user });
+    this.unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
+      // this.setState({ currentUser: user });
 
-      console.log(user);
+
+      //userAuth!=null
+      if(userAuth){
+        const userRef = await  createUserProfileDocument(userAuth);
+
+        userRef.onSnapshot(snapshot=>{
+          this.setState({
+            currentUser: {
+              id: snapshot.id, 
+              ...snapshot.data()
+            }
+            //add console.log here cause the state is asynchronous, so there is a change that's not been called yet.
+          });
+            console.log(this.state);               
+        })
+
+      }
+      //userAuth=null
+      this.setState({currentUser: userAuth});
+      // console.log(user);
     });
   }
 
