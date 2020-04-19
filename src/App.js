@@ -38,10 +38,10 @@ class App extends React.Component {
               id: snapshot.id, 
               ...snapshot.data()
             }
-            //add console.log here cause the state is asynchronous, so there is a change that's not been called yet.
+       
           });
-            console.log(this.state);               
-        })
+            // console.log(this.state);               
+        });
 
       }
       //userAuth=null
