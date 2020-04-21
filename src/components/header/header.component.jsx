@@ -4,10 +4,12 @@ import {  connect } from "react-redux";
 import { ReactComponent as Logo } from "../../assets/crwn.svg";
 import "./header.style.scss";
 import {auth} from "../../firebase/firebase.utils";
+import CartIcon from "../cart-icon/cart-icon.component";
+import CartDropdown from "../cart/cart.component"
 
 
 //after importing auth we will destructure the current user property. 
-const Header= ({currentUser})=>(
+const Header= ({currentUser, hidden})=>(
 
     <div className="header">
         <Link className="logo-container" to="/">
@@ -32,14 +34,20 @@ const Header= ({currentUser})=>(
           SIGN IN
         </Link>
       )}
+      <CartIcon />
 
         </div>
+        {
+          hidden? null : <CartDropdown />
+        }
+        
     </div>
 )
 // this state is the root reducer
-const mapStateToProps= state => ({
+const mapStateToProps= ({user: {currentUser}, cart: {hidden}}) => ({
 
-  currentUser:state.user.currentUser
+  currentUser,
+  hidden
 })
 
 export default connect(mapStateToProps)(Header);
