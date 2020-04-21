@@ -43,7 +43,7 @@ const Header= ({currentUser, hidden})=>(
         
     </div>
 )
-// this state is the root reducer
+// this state is the root reducer.
 const mapStateToProps= ({user: {currentUser}, cart: {hidden}}) => ({
 
   currentUser,

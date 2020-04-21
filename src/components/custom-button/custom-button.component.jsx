@@ -5,9 +5,9 @@ import "./custom-button.style.scss";
 
 //in order to pass the form inputs etc to the button we have use the children of the props
 
-const CustomButton = ({children, isGoogleSignIn, ...otherProps})=>(
+const CustomButton = ({children, isGoogleSignIn,inverted, ...otherProps})=>(
 
-    <button className={`${isGoogleSignIn ? "google-sign-in": ""}  custom-button`}
+    <button className={`${inverted ? "inverted": ""}  custom-button`}
     {...otherProps}>
 
        { children}
