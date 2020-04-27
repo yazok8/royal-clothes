@@ -5,7 +5,6 @@ import CustomButton from "../custom-button/custom-button.component";
 import { addItem } from "../../redux/cart/cart.action"
 
 //functional component
-//replaced () with { } also added the return to render javascript our of this function. 
 const CollectionItem= ({ item,addItem })=>{
 
     //distructure these properties from the item instead of props  

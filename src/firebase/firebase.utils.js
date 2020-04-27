@@ -25,7 +25,6 @@ const config= {
     //create the snapshot
 
     if(!snapShot.exists){
-      //before we create the documentRef we need to check what properties or data will need to store 
       const {displayName, email} = userAuth;
       const createdAt = new Date();
       
