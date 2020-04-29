@@ -1,19 +1,9 @@
-import React from "react"; 
-import "./custom-button.style.scss"; 
+import React from 'react';
 
-//Create stateless functional component
+import { CustomButtonContainer } from './custom-button.styles';
 
-//in order to pass the form inputs etc to the button we have use the children of the props
-
-const CustomButton = ({children, isGoogleSignIn,inverted, ...otherProps})=>(
-
-    <button className={`${inverted ? "inverted": ""}  custom-button`}
-    {...otherProps}>
-
-       { children}
-
-
-    </button>
-)
+const CustomButton = ({ children, ...props }) => (
+  <CustomButtonContainer {...props}>{children}</CustomButtonContainer>
+);
 
 export default CustomButton;
