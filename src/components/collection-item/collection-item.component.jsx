@@ -1,7 +1,13 @@
 import React from "react";
 import {connect} from "react-redux";
 import { addItem } from "../../redux/cart/cart.action"
-import {PriceContainer, NameContainer, CollectionFooterContainer, BackgroundImage, AddButton, CollectionItemContainer} from "./collection-item.styles"
+import {PriceContainer,
+     NameContainer,
+      CollectionFooterContainer, 
+      BackgroundImage, 
+      AddButton, 
+      CollectionItemContainer} 
+      from "./collection-item.styles"
 //functional component
 const CollectionItem= ({ item,addItem })=>{
 
