@@ -4,11 +4,8 @@ import "./App.css";
 import {Route, Switch, Redirect} from "react-router-dom";
 import {  connect } from "react-redux";
 import {createStructuredSelector} from "reselect";
-import {auth, createUserProfileDocument} from "./firebase/firebase.utils";
-import {setCurrentUser} from "./redux/user/user.action"
 import {selectCurrentUser} from "./redux/user/user.selector";
-
-
+import {checkUserSession} from "./redux/user/user.action";
 
 import Homepage from "./pages/homepage/homepage.component";
 import ShopPage from "./pages/shop/shop.component";
@@ -30,31 +27,8 @@ class App extends React.Component {
 
   componentDidMount() {
 
-    //we will distructure this of props. 
-    const {setCurrentUser}= this.props; 
-
-    this.unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
-      // this.setState({ currentUser: user });
-
-
-      //userAuth!=null
-      if(userAuth){
-        const userRef = await  createUserProfileDocument(userAuth);
-        //replace this.state with this.props.currentUser.
-        userRef.onSnapshot(snapshot=>{
-          setCurrentUser({
-              id: snapshot.id, 
-              ...snapshot.data()
-
-          });
-            // console.log(this.state);               
-        });
-
-      }
-      //userAuth=null
-      setCurrentUser(userAuth);
-      // console.log(user);
-    });
+    const {checkUserSession}= this.props; 
+    checkUserSession();
   }
 
   componentWillUnmount() {
@@ -88,11 +62,9 @@ const mapStateToProps= createStructuredSelector({
 
 })
 
-// we will pass null cause we don't need any state props from the reducer
-const mapDispatchToProps= dispatch =>({
-
-  setCurrentUser: user => dispatch(setCurrentUser(user))
-})
+const mapDispatchToProps = dispatch=>({
+  checkUserSession:()=>dispatch(checkUserSession())
+});
 
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
