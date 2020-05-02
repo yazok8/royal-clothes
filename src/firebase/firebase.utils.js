@@ -90,7 +90,7 @@ const config= {
         unsubscribe();
         resolve(userAuth); 
       }, reject)
-    })
+    });
   }
 
   export const auth=firebase.auth();

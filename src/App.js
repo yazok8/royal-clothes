@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./App.css";
 
 import {Route, Switch, Redirect} from "react-router-dom";
@@ -21,21 +21,13 @@ import Checkout from "./pages/checkout/checkout.component";
 
 // The switch allows to follow a pattern where we know that as long as one route matches then that's the only thing we're going to render.
   //in order to have access to the state, we will convert the app to a class components 
-class App extends React.Component {
 
-  unsubscribeFromAuth = null;
+  const App=({checkUserSession, currentUser})=> {
 
-  componentDidMount() {
+    useEffect(()=>{
+      checkUserSession()
+    },[checkUserSession ])
 
-    const {checkUserSession}= this.props; 
-    checkUserSession();
-  }
-
-  componentWillUnmount() {
-    this.unsubscribeFromAuth();
-  }
-
-  render(){
     return (
 
       <div>
@@ -44,16 +36,13 @@ class App extends React.Component {
         
        <Route exact path="/" component={Homepage}/>
        <Route path="/shop" component={ShopPage} />
-       <Route exact path="/signin" render={()=>this.props.currentUser? (<Redirect to="/" />) : (<SignInAndSignUpPage/>)}/>
+       <Route exact path="/signin" render={()=>currentUser? (<Redirect to="/" />) : (<SignInAndSignUpPage/>)}/>
        <Route exact path="/checkout" component={Checkout}/>
        </Switch>
   
       </div>
   
     );
-  
-  }
-
 }
 
 const mapStateToProps= createStructuredSelector({
