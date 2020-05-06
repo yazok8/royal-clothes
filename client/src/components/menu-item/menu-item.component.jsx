@@ -1,23 +1,30 @@
 
 import React from "react"; 
 import {withRouter} from "react-router-dom";
+import {
+    MenuItemContainer,
+    BackgroundImageContainer,
+    ContentContainer,
+    ContentTitle,
+    ContentSubtitle
+  } from './menu-item.styles';
 
-import "./menu-item.style.scss";
 
 //we will use the match to know where in our directory we will be. 
 const MenuItem= ({title, imageUrl, size, history, linkUrl,match})=>(
 
    
-    <div className={`${size} menu-item`} onClick={()=>history.push(`${match.url}${linkUrl}`)}>
+    <MenuItemContainer size={size} onClick={()=>history.push(`${match.url}${linkUrl}`)}>
 
 
-    <div className="background-image" style= {{backgroundImage: `url(${imageUrl})`
-    }} ></div>
-    <div className="content">
-        <h1 className="title">{title.toUpperCase()}</h1>
-        <span className="subtitle">Shop now</span>
-    </div>
-</div>
+    <BackgroundImageContainer style= {{backgroundImage: `url(${imageUrl})`
+    }}/>
+
+    <ContentContainer>
+        <ContentTitle>{title.toUpperCase()}</ContentTitle>
+        <ContentSubtitle>Shop now</ContentSubtitle>
+    </ContentContainer>
+</MenuItemContainer>
     
 )
 
