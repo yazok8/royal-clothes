@@ -20,6 +20,7 @@
     "dotenv": "7.0.0",
     "express": "^4.16.4",
     "nodemailer": "^6.4.6",
+    "react-devtools": "^3.6.3",
     "stripe": "6.28.0"
   },
   "devDependencies": {
