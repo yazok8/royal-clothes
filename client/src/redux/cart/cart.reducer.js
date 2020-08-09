@@ -7,7 +7,7 @@ const Initial_State= {
     cartItems:[]
 }
 
-//we are not using the payload here. It's optional. 
+//we are not using the payload here.
 const CartReducer = (state= Initial_State, action ) =>{
     switch (action.type){
         case CartActionTypes.TOGGLE_CART_HIDDEN: 
