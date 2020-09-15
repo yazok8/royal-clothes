@@ -27,7 +27,7 @@ export const ImageContainer = styled.div`
     padding-right: 5px;
 
     img {
-      width: 40px;
+      width: 41px;
     }
   }
 `;
@@ -56,4 +56,7 @@ export const QuantityContainer = styled(TextContainer)`
 export const RemoveButtonContainer = styled.div`
   padding-left: 12px;
   cursor: pointer;
+
+  @media (max-width) {
+  }
 `;
