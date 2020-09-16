@@ -54,3 +54,44 @@ app.post('/payment', (req, res) => {
     }
   });
 });
+
+app.post('/contact', (req, res) => {
+  nodemailer.createTestAccount((err, account) => {
+    const htmlEmail = `
+            <h3>Contact Details</h3>
+            <u>
+            <li>Name: ${req.body.name}</li>
+            <li>Email: ${req.body.email}</li>
+            </u>
+            <h3>Message</h3>
+            <p>${req.body.message}</p>
+            `;
+    let transporter = nodemailer.createTransport({
+      host: 'smtp.ethereal.email',
+      port: 587,
+      auth: {
+        user: testAccount.user,
+        pass: estAccount.pass,
+      },
+    });
+
+    let mailOptopns = {
+      from: '"Fred Foo 👻" <foo@example.com>',
+      to: 'bar@example.com, baz@example.com',
+      replyTo: 'test@testaccount.com', //example
+      subject: 'new message',
+      text: req.body.message,
+      html: htmlEmail,
+    };
+
+    transporter.sendMail(mailOptopns, (err, info) => {
+      console.log(mailOptions);
+      if (err) {
+        return console.log(err);
+      }
+      console.log('Message Sent: %s', info.message);
+
+      console.log('Message URL: %s', nodemailer.getTestMessageUrl(info));
+    });
+  });
+});
