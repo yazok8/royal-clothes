@@ -35,6 +35,11 @@ app.listen(port, (error) => {
   console.log('server running on port ' + port);
 });
 
+process.on('SIGTERM', (signal) => {
+  console.log(`Process ${process.pid} received a SIGTERM signal`);
+  process.exit(0);
+});
+
 app.get('/service-worker.js', (req, res) => {
   res.sendFile(path.resolve(__dirname, '..', 'build', 'service-worker.js'));
 });
