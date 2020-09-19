@@ -12,8 +12,6 @@ const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 
 const app = express();
 
-const port = process.env.PORT || 5000;
-
 app.use(compression());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -26,23 +24,18 @@ if (process.env.NODE_ENV === 'production') {
   app.use(express.static(path.join(__dirname, 'client/build')));
 
   app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
+    res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'));
   });
+  0;
 }
 
-app.listen(port, (error) => {
-  if (error) throw error;
-  console.log('server running on port ' + port);
-});
+const PORT = process.env.PORT || 5000;
 
-process.on('SIGTERM', (signal) => {
-  console.log(`Process ${process.pid} received a SIGTERM signal`);
-  process.exit(0);
-});
+app.listen(PORT, () => console.log(`app is listening on port ${PORT}`));
 
-app.get('/service-worker.js', (req, res) => {
-  res.sendFile(path.resolve(__dirname, '..', 'build', 'service-worker.js'));
-});
+// app.get('/service-worker.js', (req, res) => {
+//   res.sendFile(path.resolve(__dirname, '..', 'build', 'service-worker.js'));
+// });
 
 app.post('/payment', (req, res) => {
   const body = {
