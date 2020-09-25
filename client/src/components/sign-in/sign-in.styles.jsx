@@ -5,7 +5,7 @@ export const SignInContainer = styled.div`
   display: flex;
   flex-direction: column;
 
-  @media (max-width: 800px) {
+  @media screen and (max-width: 800px) {
     display: block;
     width: 300px;
   }
@@ -19,7 +19,7 @@ export const ButtonsBarContainer = styled.div`
   display: flex;
   justify-content: space-between;
 
-  @media (max-width: 800px) {
+  @media screen and (max-width: 800px) {
     margin-bottom: 40px;
   }
 `;

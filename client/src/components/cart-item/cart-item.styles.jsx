@@ -6,7 +6,7 @@ export const CartItemContainer = styled.div`
   height: 80px;
   margin-bottom: 15px;
 
-  @media (max-width: 800px) {
+  @media screen and (max-width: 800px) {
     width: 100px;
   }
 `;
@@ -14,7 +14,7 @@ export const CartItemContainer = styled.div`
 export const ImageContainer = styled.img`
   width: 30%;
 
-  @media (max-width: 800px) {
+  @media screen and (max-width: 800px) {
     width: 40px;
     margin-right: 80px;
   }
@@ -28,7 +28,7 @@ export const ItemDetailsContainer = styled.div`
   justify-content: center;
   padding: 10px 20px;
 
-  @media (max-width: 800px) {
+  @media screen and (max-width: 800px) {
     padding: 10px 10px;
   }
 `;

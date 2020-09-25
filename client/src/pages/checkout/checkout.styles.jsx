@@ -26,7 +26,7 @@ export const CheckoutHeaderContainer = styled.div`
   justify-content: space-between;
   border-bottom: 1px solid darkgrey;
 
-  @media (max-width: 800px) {
+  @media screen and (max-width: 800px) {
     width: 400px;
     font-size: 13px;
     justify-content: space-between;
@@ -41,7 +41,7 @@ export const HeaderBlockContainer = styled.div`
     width: 40%;
   }
 
-  @media (max-width: 800px) {
+  @media screen and (max-width: 800px) {
     margin-left: 10px;
   }
 `;

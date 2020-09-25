@@ -19,7 +19,7 @@ export const CollectionItemContainer = styled.div`
     }
   }
 
-  @media (max-width: 800px) {
+  @media screen and (max-width: 800px) {
     width: 40vw;
 
     &:hover {
@@ -40,7 +40,7 @@ export const AddButton = styled(CustomButton)`
   top: 255px;
   display: none;
 
-  @media (max-width: 800px) {
+  @media screen and (max-width: 800px) {
     display: block;
     opacity: 0.9;
     min-width: unset;
@@ -56,7 +56,7 @@ export const BackgroundImage = styled.div`
   margin-bottom: 5px;
   background-image: ${({ imageUrl }) => `url(${imageUrl})`};
 
-  @media (max-width: 800px) {
+  @media screen and (max-width: 800px) {
     width: 40vw;
 
     &:hover {

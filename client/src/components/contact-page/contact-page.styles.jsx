@@ -6,7 +6,7 @@ export const ContactUsContainer = styled.div`
   flex-direction: column;
   margin-left: 30%;
 
-  @media (max-width: 800px) {
+  @media screen and (max-width: 800px) {
     display: block;
     width: 300px;
     margin-left: 10%;
