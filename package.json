@@ -26,7 +26,7 @@
     "http": "0.0.1-security",
     "lodash": "^4.17.19",
     "nodemailer": "^6.4.6",
-    "react-devtools": "^3.6.3",
+    "react-devtools": "^4.13.0",
     "stripe": "6.28.0"
   },
   "devDependencies": {
