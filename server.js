@@ -13,7 +13,7 @@ const app = express();
 
 app.use(express.json());
 
-const port = process.env.PORT || 5000;
+
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -94,7 +94,9 @@ if (process.env.NODE_ENV === 'production') {
   });
 }
 
-app.listen(port, (error) => {
+const Port = process.env.PORT || 5000;
+
+app.listen(Port, (error) => {
   if (error) throw error;
-  app.listen(port, () => console.log(`app is listening on port ${port}`));
+  console.log(`app is listening on port ${Port}`);
 });
