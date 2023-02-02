@@ -3,6 +3,8 @@
 /client/.pnp
 /client/.pnp.js
 
+/client/src/firebase/config.js
+
 # testing
 /client/coverage
 
