@@ -3,12 +3,7 @@ import 'firebase/firebase-firestore';
 import 'firebase/auth';
 import {config_env, config} from "./config"
 
-if (process.env.NODE_ENV === 'production') {
-  firebase.initializeApp(config_env);
-}else{
   firebase.initializeApp(config);
-}
-
 
 
   export const createUserProfileDocument = async (userAuth, additionalData) =>{
